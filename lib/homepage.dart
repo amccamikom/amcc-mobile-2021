@@ -79,16 +79,15 @@ class HomepageView extends StatelessWidget {
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       border: Border.all(
-                          width: 1,
-                          color: Colors.amber,
-                        ),
-                        borderRadius: BorderRadius.circular(100),
+                        width: 1,
+                        color: Colors.amber,
+                      ),
+                      borderRadius: BorderRadius.circular(100),
                     ),
                     child: Container(
                       height: 38,
                       width: 38,
                       decoration: BoxDecoration(
-                        
                         borderRadius: BorderRadius.circular(100),
                         image: DecorationImage(
                           image: AssetImage('assets/luthfi.png'),
@@ -182,9 +181,7 @@ class HomepageView extends StatelessWidget {
                       Positioned(
                         bottom: 0,
                         child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/pecel_sayur');
-                          },
+                          onTap: () {},
                           child: Container(
                             padding: EdgeInsets.all(16),
                             decoration: BoxDecoration(
@@ -249,9 +246,7 @@ class HomepageView extends StatelessWidget {
                       Positioned(
                         bottom: 0,
                         child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/detail-page');
-                          },
+                          onTap: () {},
                           child: Container(
                             padding: EdgeInsets.all(16),
                             decoration: BoxDecoration(

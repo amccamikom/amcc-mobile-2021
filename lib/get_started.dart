@@ -52,34 +52,35 @@ class GetStarted extends StatelessWidget {
           Positioned(
             bottom: 34,
             child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/homepage');
-                },
-                child: Container(
-                  width: 215,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF333333),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  padding: EdgeInsets.symmetric(vertical: 24),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Mulai',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Icon(
-                        Icons.chevron_right,
+              onPressed: () {
+                Navigator.pushNamed(context, '/homepage');
+              },
+              child: Container(
+                width: 215,
+                decoration: BoxDecoration(
+                  color: Color(0xFF333333),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 24),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Mulai',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
                         color: Colors.white,
                       ),
-                    ],
-                  ),
-                )),
+                    ),
+                    Icon(
+                      Icons.chevron_right,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
