@@ -181,7 +181,9 @@ class HomepageView extends StatelessWidget {
                       Positioned(
                         bottom: 0,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushNamed('/detail');
+                          },
                           child: Container(
                             padding: EdgeInsets.all(16),
                             decoration: BoxDecoration(

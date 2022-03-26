@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makan_yok_app/detail_item.dart';
 import 'package:makan_yok_app/get_started.dart';
 import 'package:makan_yok_app/homepage.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => GetStarted(),
           '/homepage': (context) => HomepageView(),
+          '/detail': (context) => DetailItemView(),
         });
   }
 }
