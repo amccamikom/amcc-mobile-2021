@@ -32,7 +32,7 @@ class HomepageView extends StatelessWidget {
                     ],
                   ))),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pushNamed('/profile'),
                   child: Container(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

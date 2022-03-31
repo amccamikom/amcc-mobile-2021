@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:makan_yok_app/detail_item.dart';
 import 'package:makan_yok_app/get_started.dart';
 import 'package:makan_yok_app/homepage.dart';
+import 'package:makan_yok_app/profile_view.dart';
+import 'package:makan_yok_app/webview_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
           '/': (context) => GetStarted(),
           '/homepage': (context) => HomepageView(),
           '/detail': (context) => DetailItemView(),
+          '/profile': (context) => ProfileView(),
+          '/webview': (context) => WebviewPage(),
         });
   }
 }
