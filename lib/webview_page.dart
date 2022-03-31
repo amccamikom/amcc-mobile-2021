@@ -9,7 +9,16 @@ class WebviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: WebviewScaffold(
+        appBar: AppBar(
+          title: Text('LinkedIn'),
+        ),
         url: 'https://linkedin.com',
+        initialChild: Container(
+          color: Colors.redAccent,
+          child: const Center(
+            child: Text('Waiting.....'),
+          ),
+        ),
       ),
     );
   }
