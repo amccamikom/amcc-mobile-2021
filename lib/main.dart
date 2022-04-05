@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => GetStarted(),
         '/homepage': (context) => HomepageView(),
         '/pecel_sayur': (context) => PecelSayurView(),
+        '/profile': (context) => PecelSayurView(),
       }
     );
   }
