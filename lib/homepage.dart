@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:makan_yok_app/app_routes.dart';
 
 class HomepageView extends StatelessWidget {
   const HomepageView({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class HomepageView extends StatelessWidget {
                     ],
                   ))),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pushNamed('/profile'),
                   child: Container(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -73,22 +74,21 @@ class HomepageView extends StatelessWidget {
                 // foto-profil
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/profilepage');
+                    Navigator.pushNamed(context, '/profile');
                   },
                   child: Container(
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       border: Border.all(
-                          width: 1,
-                          color: Colors.amber,
-                        ),
-                        borderRadius: BorderRadius.circular(100),
+                        width: 1,
+                        color: Colors.amber,
+                      ),
+                      borderRadius: BorderRadius.circular(100),
                     ),
                     child: Container(
                       height: 38,
                       width: 38,
                       decoration: BoxDecoration(
-                        
                         borderRadius: BorderRadius.circular(100),
                         image: DecorationImage(
                           image: AssetImage('assets/luthfi.png'),
@@ -171,146 +171,122 @@ class HomepageView extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             height: 260,
             child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(children: [
-                Container(
-                  margin: EdgeInsets.only(right: 10),
-                  height: 260,
-                  width: 190,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        bottom: 0,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/pecel_sayur');
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            height: 190,
-                            width: 190,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'Pecel Sayur',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text(
-                                  'Mix vegetables inggridients',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "USD 14",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 20,
-                        child: Container(
-                          height: 142,
-                          width: 142,
-                          child: Image.asset('assets/get-started.png'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 10),
-                  height: 260,
-                  width: 190,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        bottom: 0,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/detail-page');
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            height: 190,
-                            width: 190,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'Pecel Ga Sayur',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text(
-                                  'Mix vegetables inggridients',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "USD 14",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 20,
-                        child: Container(
-                          height: 142,
-                          width: 142,
-                          child: Image.asset('assets/get-started.png'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ]),
-            ),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    JenisMenu(
+                        labelmenu: 'Pecel Sayur 1',
+                        deskripsi: 'Ini adalah pecel sayur',
+                        harga: 'USD 14',
+                        aksi: Routes.Detail,
+                        img: 'assets/pecel-sayur.png'),
+                    JenisMenu(
+                        labelmenu: 'Pecel Sayur 2',
+                        deskripsi: 'Ini adalah pecel sayur',
+                        harga: 'USD 14',
+                        aksi: Routes.Detail,
+                        img: 'assets/pecel-sayur.png'),
+                    JenisMenu(
+                        labelmenu: 'Pecel Sayur',
+                        deskripsi: 'Ini adalah pecel sayur',
+                        harga: 'USD 14',
+                        aksi: Routes.Detail,
+                        img: 'assets/pecel-sayur.png'),
+                    JenisMenu(
+                        labelmenu: 'Pecel Sayur',
+                        deskripsi: 'Ini adalah pecel sayur',
+                        harga: 'USD 14',
+                        aksi: Routes.Detail,
+                        img: 'assets/pecel-sayur.png'),
+                  ],
+                )),
           ),
         ]),
+      ),
+    );
+  }
+}
+
+class JenisMenu extends StatelessWidget {
+  final String labelmenu;
+  final String deskripsi;
+  final String harga;
+  final String aksi;
+  final String img;
+  JenisMenu(
+      {required this.labelmenu,
+      required this.deskripsi,
+      required this.harga,
+      required this.aksi,
+      required this.img});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(right: 10),
+      height: 260,
+      width: 190,
+      child: Stack(
+        children: [
+          Positioned(
+            bottom: 0,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed('/detail');
+              },
+              child: Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                height: 190,
+                width: 190,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      labelmenu,
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      deskripsi,
+                      style: GoogleFonts.poppins(
+                        fontSize: 10,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      harga,
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 20,
+            child: Container(
+              height: 142,
+              width: 142,
+              child: Image.asset(img),
+            ),
+          ),
+        ],
       ),
     );
   }
