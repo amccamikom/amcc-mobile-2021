@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 // color
 const coklat = const Color(0xFF333333);
 const orange = const Color(0xFFFF594F);
+const canvas = const Color(0xFFF6FAFC);
 
 // fontSize
 TextStyle kecil = GoogleFonts.poppins(fontSize: 12);

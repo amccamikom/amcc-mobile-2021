@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:makan_yok_app/app_routes.dart';
+import 'package:makan_yok_app/constant.dart';
 
 class HomepageView extends StatelessWidget {
   const HomepageView({Key? key}) : super(key: key);
@@ -14,13 +15,13 @@ class HomepageView extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           height: 75,
           decoration: BoxDecoration(
-              color: Color(0xFF333333),
+              color: coklat,
               borderRadius: BorderRadius.circular(20)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pushNamed(Routes.Home),
                   child: Container(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +34,7 @@ class HomepageView extends StatelessWidget {
                     ],
                   ))),
               TextButton(
-                  onPressed: () => Navigator.of(context).pushNamed('/profile'),
+                  onPressed: () => Navigator.of(context).pushNamed(Routes.Profil),
                   child: Container(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +49,7 @@ class HomepageView extends StatelessWidget {
             ],
           )),
       body: Container(
-        color: Color(0xFFF6FAFC),
+        color: canvas,
         child: ListView(shrinkWrap: true, children: [
           Container(
             margin: EdgeInsets.only(left: 30, right: 30, top: 50),
@@ -74,7 +75,7 @@ class HomepageView extends StatelessWidget {
                 // foto-profil
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/profile');
+                    Navigator.pushNamed(context, Routes.Profil);
                   },
                   child: Container(
                     padding: EdgeInsets.all(5),
