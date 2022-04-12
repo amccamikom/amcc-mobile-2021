@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:makan_yok_app/app_routes.dart';
 import 'package:makan_yok_app/constant.dart';
+import 'package:makan_yok_app/model/makanan.dart';
 
 class HomepageView extends StatelessWidget {
   const HomepageView({Key? key}) : super(key: key);
@@ -15,8 +17,7 @@ class HomepageView extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           height: 75,
           decoration: BoxDecoration(
-              color: coklat,
-              borderRadius: BorderRadius.circular(20)),
+              color: coklat, borderRadius: BorderRadius.circular(20)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -34,7 +35,8 @@ class HomepageView extends StatelessWidget {
                     ],
                   ))),
               TextButton(
-                  onPressed: () => Navigator.of(context).pushNamed(Routes.Profil),
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(Routes.Profil),
                   child: Container(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -174,33 +176,8 @@ class HomepageView extends StatelessWidget {
             child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [
-                    JenisMenu(
-                        labelmenu: 'Pecel Sayur 1',
-                        deskripsi: 'Ini adalah pecel sayur',
-                        harga: 'USD 14',
-                        aksi: Routes.Detail,
-                        img: 'assets/pecel-sayur.png'),
-                    JenisMenu(
-                        labelmenu: 'Pecel Sayur 2',
-                        deskripsi: 'Ini adalah pecel sayur',
-                        harga: 'USD 14',
-                        aksi: Routes.Detail,
-                        img: 'assets/pecel-sayur.png'),
-                    JenisMenu(
-                        labelmenu: 'Pecel Sayur',
-                        deskripsi: 'Ini adalah pecel sayur',
-                        harga: 'USD 14',
-                        aksi: Routes.Detail,
-                        img: 'assets/pecel-sayur.png'),
-                    JenisMenu(
-                        labelmenu: 'Pecel Sayur',
-                        deskripsi: 'Ini adalah pecel sayur',
-                        harga: 'USD 14',
-                        aksi: Routes.Detail,
-                        img: 'assets/pecel-sayur.png'),
-                  ],
-                )),
+                    children:
+                        Makanan.items.map((e) => JenisMenu(data: e)).toList())),
           ),
         ]),
       ),
@@ -209,17 +186,10 @@ class HomepageView extends StatelessWidget {
 }
 
 class JenisMenu extends StatelessWidget {
-  final String labelmenu;
-  final String deskripsi;
-  final String harga;
-  final String aksi;
-  final String img;
-  JenisMenu(
-      {required this.labelmenu,
-      required this.deskripsi,
-      required this.harga,
-      required this.aksi,
-      required this.img});
+  final Makanan data;
+  JenisMenu({
+    required this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +203,7 @@ class JenisMenu extends StatelessWidget {
             bottom: 0,
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed('/detail');
+                Get.toNamed(Routes.Detail, arguments: data);
               },
               child: Container(
                 padding: EdgeInsets.all(16),
@@ -248,7 +218,7 @@ class JenisMenu extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      labelmenu,
+                      data.nama!,
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -257,18 +227,11 @@ class JenisMenu extends StatelessWidget {
                     SizedBox(
                       height: 3,
                     ),
-                    Text(
-                      deskripsi,
-                      style: GoogleFonts.poppins(
-                        fontSize: 10,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
                     SizedBox(
                       height: 15,
                     ),
                     Text(
-                      harga,
+                      'Rp${data.harga}',
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -284,7 +247,7 @@ class JenisMenu extends StatelessWidget {
             child: Container(
               height: 142,
               width: 142,
-              child: Image.asset(img),
+              child: Image.asset(data.imagePath!),
             ),
           ),
         ],

@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'model/makanan.dart';
 
 class DetailItemView extends StatelessWidget {
-  const DetailItemView({Key? key}) : super(key: key);
+  DetailItemView({Key? key}) : super(key: key);
+
+  final Makanan data = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,7 @@ class DetailItemView extends StatelessWidget {
                     children: [
                       SizedBox(height: 64),
                       Text(
-                        'Pecel Sayur \nEnak Banget!',
+                        data.nama!,
                         style: TextStyle(
                           fontSize: 24,
                         ),
@@ -51,7 +56,7 @@ class DetailItemView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Rp. 11K',
+                        'Rp${data.harga}',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,
@@ -63,7 +68,7 @@ class DetailItemView extends StatelessWidget {
                 Positioned(
                   right: -90,
                   child: Image.asset(
-                    'assets/pecel-sayur.png',
+                    data.imagePath!,
                     width: 300,
                   ),
                 ),
@@ -97,7 +102,7 @@ class DetailItemView extends StatelessWidget {
                           color: Colors.amber,
                         ),
                         Text(
-                          '4.9',
+                          data.rating.toString(),
                           style: TextStyle(
                             color: Colors.amber,
                           ),
@@ -108,7 +113,7 @@ class DetailItemView extends StatelessWidget {
                 ),
                 SizedBox(height: 24),
                 Text(
-                  'This Italian salad is full of all the right flavors and textures: crisp lettuce, crunchy garlic croutons, and zingy pepperoncini. It’s covered in punchy, herby Italian vinaigrette that makes the flavors sing! It can play sidekick to just about anything.',
+                  data.deskripsi!,
                   style: TextStyle(
                     fontSize: 16,
                     height: 1.6,
@@ -117,82 +122,37 @@ class DetailItemView extends StatelessWidget {
                 SizedBox(height: 24),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 76,
-                      height: 76,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Image.asset('assets/tomat.png'),
-                    ),
-                    Container(
-                      width: 76,
-                      height: 76,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Image.asset('assets/wortel.png'),
-                    ),
-                    Container(
-                      width: 76,
-                      height: 76,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Image.asset('assets/bawang.png'),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 76,
-                      height: 76,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Image.asset('assets/tomat.png'),
-                    ),
-                    Container(
-                      width: 76,
-                      height: 76,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Image.asset('assets/wortel.png'),
-                    ),
-                    Container(
-                      width: 76,
-                      height: 76,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Image.asset('assets/bawang.png'),
-                    ),
-                  ],
+                  children: data.bahanMakanan!
+                      .map((e) => BahanItem(imagePath: e))
+                      .toList(),
                 ),
               ],
             ),
           )
         ],
       ),
+    );
+  }
+}
+
+class BahanItem extends StatelessWidget {
+  final String imagePath;
+  const BahanItem({
+    Key? key,
+    required this.imagePath,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 76,
+      height: 76,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: Colors.amber,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Image.asset(imagePath),
     );
   }
 }
