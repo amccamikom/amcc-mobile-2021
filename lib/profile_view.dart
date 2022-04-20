@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:makan_yok_app/app_routes.dart';
 import 'package:makan_yok_app/constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -45,7 +46,7 @@ class ProfileView extends StatelessWidget {
             SizedBox(height: 42),
             Text(
               'Topiq Alpianto',
-              style: besar
+            
             ),
             SizedBox(height: 32),
             GestureDetector(
@@ -117,7 +118,26 @@ class ProfileView extends StatelessWidget {
                   Text('LinkedIn')
                 ],
               ),
-            )
+            ),
+            InkWell(
+              onTap: () {Navigator.pushNamed(context,Routes.Webview);},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 34,
+                    height: 34,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.black),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(Icons.mail),
+                  ),
+                  SizedBox(width: 16),
+                  Text('Youtube')
+                ],
+              ),
+            ),
           ],
         ),
       ),

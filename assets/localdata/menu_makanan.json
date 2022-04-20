@@ -1,0 +1,30 @@
+[
+    {
+        "id_menu": 1,
+        "nama_menu":"Pecel Sayur",
+        "deskripsi":"Ini Pecel Sayur",
+        "harga":14000,
+        "img":"assets/pecel-sayur.png"
+    },
+    {
+        "id_menu": 2,
+        "nama_menu":"Salad",
+        "deskripsi":"Ini Salad",
+        "harga":13000,
+        "img":"assets/get-started.png"
+    },
+    {
+        "id_menu": 3,
+        "nama_menu":"Takoyaki",
+        "deskripsi":"Ini Takoyaki",
+        "harga":13000,
+        "img":"assets/get-started.png"
+    },
+    {
+        "id_menu": 4,
+        "nama_menu":"Gimbab",
+        "deskripsi":"Ini Gimbab",
+        "harga":13000,
+        "img":"assets/get-started.png"
+    }
+]
