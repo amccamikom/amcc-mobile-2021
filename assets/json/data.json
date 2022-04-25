@@ -1,0 +1,23 @@
+[
+    {
+        "nama": "Pecel Jamur Mba Rus",
+        "harga": "11.5k",
+        "deskripsi": "Pecel jamur kripsi enak banget",
+        "rating": 4.5,
+        "imagePath": "assets/pecel-jamur.png"
+    },
+    {
+        "nama": "Nasi Rames Yudis",
+        "harga": "6k",
+        "deskripsi": "Nasi rames langganan anak amcc",
+        "rating": 4.8,
+        "imagePath": "assets/rames-yudis.png"
+    },
+    {
+        "nama": "Telur Bakar Mas Bambang",
+        "harga": "7k",
+        "deskripsi": "telur kecap dibakar",
+        "rating": 4.7,
+        "imagePath": "assets/telur-bakar.png"
+    }
+]

@@ -5,6 +5,8 @@ import 'package:makan_yok_app/app_routes.dart';
 import 'package:makan_yok_app/constant.dart';
 import 'package:makan_yok_app/model/makanan.dart';
 
+import 'controller/home_controller.dart';
+
 class HomepageView extends StatelessWidget {
   const HomepageView({Key? key}) : super(key: key);
 
@@ -12,6 +14,7 @@ class HomepageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeController = Get.put(HomeController());
     return Scaffold(
       bottomNavigationBar: Container(
           margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -22,7 +25,10 @@ class HomepageView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextButton(
-                  onPressed: () => Navigator.of(context).pushNamed(Routes.Home),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(Routes.Home);
+                    // homeController.getDataMakanan();
+                  },
                   child: Container(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -170,15 +176,18 @@ class HomepageView extends StatelessWidget {
           ),
 
           // menu
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            height: 260,
-            child: SingleChildScrollView(
+          Obx(() {
+            return Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              height: 260,
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                    children:
-                        Makanan.items.map((e) => JenisMenu(data: e)).toList())),
-          ),
+                itemCount: homeController.daftarMakanan.length,
+                itemBuilder: (context, index) =>
+                    JenisMenu(data: homeController.daftarMakanan[index]),
+              ),
+            );
+          }),
         ]),
       ),
     );
