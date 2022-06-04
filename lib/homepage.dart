@@ -10,8 +10,6 @@ import 'controller/home_controller.dart';
 class HomepageView extends StatelessWidget {
   const HomepageView({Key? key}) : super(key: key);
 
-  get namaUser => 'Luthfi Asmara';
-
   @override
   Widget build(BuildContext context) {
     final homeController = Get.put(HomeController());
@@ -54,6 +52,19 @@ class HomepageView extends StatelessWidget {
                       )
                     ],
                   ))),
+              TextButton(
+                  onPressed: () => homeController.addFood(),
+                  child: Container(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.add, color: Colors.white),
+                      Text(
+                        'Add Food',
+                        style: GoogleFonts.poppins(color: Colors.white),
+                      )
+                    ],
+                  ))),
             ],
           )),
       body: Container(
@@ -68,7 +79,7 @@ class HomepageView extends StatelessWidget {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Hai, $namaUser',
+                        Text('Hai, ${homeController.namaUser}',
                             style: GoogleFonts.poppins(
                                 fontSize: 16, fontWeight: FontWeight.w400)),
                         SizedBox(
@@ -100,7 +111,7 @@ class HomepageView extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         image: DecorationImage(
-                          image: AssetImage('assets/luthfi.png'),
+                          image: AssetImage(homeController.imageUrl),
                         ),
                       ),
                     ),

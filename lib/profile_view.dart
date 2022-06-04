@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 import 'package:makan_yok_app/constant.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'controller/home_controller.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final homeController = Get.put(HomeController());
     return Scaffold(
-       appBar: AppBar(
-          leading: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/homepage');
-              },
-              child: Icon(Icons.arrow_back_ios,
-              color: Colors.grey)),
-              backgroundColor: Colors.white,
-              elevation: 0,
-        ),
+      appBar: AppBar(
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/homepage');
+            },
+            child: Icon(Icons.arrow_back_ios, color: Colors.grey)),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -36,17 +38,11 @@ class ProfileView extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(200),
-                child: Image.network(
-                  'https://th-thumbnailer.cdn-si-edu.com/5a79C6jJ8BrChMX5tgEKiMI_qqo=/1000x750/filters:no_upscale():focal(792x601:793x602)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/52/e4/52e44474-c2dc-41e0-bb77-42a904695196/this-image-shows-a-portrait-of-dragon-man-credit-chuang-zhao_web.jpg',
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(homeController.imageUrl),
               ),
             ),
             SizedBox(height: 42),
-            Text(
-              'Topiq Alpianto',
-              style: besar
-            ),
+            Text('${homeController.namaUser}', style: besar),
             SizedBox(height: 32),
             GestureDetector(
               onTap: () async {

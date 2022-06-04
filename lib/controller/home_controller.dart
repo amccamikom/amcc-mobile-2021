@@ -7,6 +7,8 @@ import '../model/makanan.dart';
 
 class HomeController extends GetxController {
   RxList<Makanan> daftarMakanan = <Makanan>[].obs;
+  String namaUser = 'Cici Meisha';
+  String imageUrl = 'assets/luthfi.png';
 
   void getDataMakanan() async {
     var data = await rootBundle.loadString('assets/json/data.json');
@@ -36,6 +38,18 @@ class HomeController extends GetxController {
           ),
         )
         .toList();
+  }
+
+  void addFood() {
+    var makanan = Makanan(
+      nama: 'Bawang Putih',
+      deskripsi: 'Bawang putih dari alam',
+      harga: '3k',
+      rating: 4.5,
+      imagePath: 'assets/bawang.png',
+    );
+
+    daftarMakanan.add(makanan);
   }
 
   @override
